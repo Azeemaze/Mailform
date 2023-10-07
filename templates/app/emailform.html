@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body id="bg" style="background-image: url('{% static '/static/image/' %}');">
+<form method="post" action="" novalidate>
+    {% csrf_token %}
+    {{ form.non_field_errors }}
+    <table>
+        {% for field in form %}
+        <tr>
+            <td>{{field.label_tag}}</td>
+            <td>{{field}}</td>
+	    <td>{{field.errors}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <input type="submit" value="submit"><br>
+</form>
+
+</body>
+</html>
